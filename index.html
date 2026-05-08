@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Davis Kiarii Wanjiku — Psychology, Media & Tech</title>
+    <meta name="description" content="Psychology student, podcaster, content creator. Building accessible mental health tools at the intersection of psychology, media, and technology.">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2d5a6a;      /* Deep teal — trust, calm */
+            --accent: #d4a574;       /* Warm gold — growth, warmth */
+            --secondary: #4a7c8c;    /* Lighter teal */
+            --light-bg: #f5f3f0;     /* Off-white, warm */
+            --dark-text: #1a1a1a;
+            --gray-text: #555;
+            --border: #e0d9d3;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background: var(--light-bg);
+        }
+
+        /* TYPOGRAPHY */
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: -0.5px;
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--gray-text);
+        }
+
+        /* HEADER & NAV */
+        header {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--gray-text);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.95rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* HERO SECTION */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .hero-tagline {
+            font-size: 1.4rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--dark-text);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(212, 165, 116, 0.3);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border-color: white;
+        }
+
+        .btn-secondary:hover {
+            background: white;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+        }
+
+        .slide-left {
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .slide-right {
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section:nth-child(even) {
+            background: white;
+        }
+
+        /* ABOUT SECTION */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-text h2 {
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .about {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        /* PROJECTS GRID */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent);
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-card h3 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-card p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .project-link {
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+            padding-bottom: 2px;
+        }
+
+        .project-link:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        /* SERVICES SECTION */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-item {
+            padding: 2rem;
+            background: var(--light-bg);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .service-item h3 {
+            color: var(--primary);
+        }
+
+        /* SKILLS SECTION */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--gray-text);
+        }
+
+        .skill-list li:before {
+            content: "→ ";
+            color: var(--accent);
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        /* CONTACT SECTION */
+        .contact-cta {
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 4rem 2rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+        }
+
+        .contact-cta h2 {
+            color: white;
+        }
+
+        .contact-cta p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark-text);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* SCROLL REVEAL */
+        .scroll-reveal {
+            opacity: 0;
+        }
+
+        .scroll-reveal.in-view {
+            opacity: 1;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        /* LOADING STATE */
+        .fade-in-delay-1 { animation-delay: 0.1s; }
+        .fade-in-delay-2 { animation-delay: 0.2s; }
+        .fade-in-delay-3 { animation-delay: 0.3s; }
+        .fade-in-delay-4 { animation-delay: 0.4s; }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER & NAV -->
+    <header>
+        <nav>
+            <a href="#" class="logo">Kiarii</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Work</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Psychology, Media & Technology</h1>
+            <p class="hero-tagline">Making mental health knowledge accessible to everyday people across Africa. Student. Podcaster. Builder.</p>
+            <div class="hero-cta">
+                <a href="#about" class="btn btn-primary">Learn More</a>
+                <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about scroll-reveal">
+        <div class="about-img">
+            <img src="davis.jpg" alt="Davis Kiarii Wanjiku">
+        </div>
+        <div class="about-text">
+            <h2>About Davis</h2>
+            <p>I'm a <span class="highlight">Year 3 Psychology student</span> at a Kenyan university, expected to graduate in 2027. My work bridges psychology, media, and technology — turning psychological concepts into accessible content for real people.</p>
+            <p>I host <span class="highlight">Psychology With Us</span>, a podcast exploring African perspectives on mental health. I've built <span class="highlight">i-Personality</span>, a web-based personality assessment tool. And I'm a published poet under the pen name <span class="highlight">Kieran Rivenhall</span>.</p>
+            <p>My philosophy: psychology shouldn't live only in textbooks and therapy rooms. Every project I build reflects that belief.</p>
+            <p style="font-size: 0.95rem; color: #999; margin-top: 2rem;">📍 Nairobi, Kenya | 📧 psychologistkiariidavis@gmail.com | 📱 +254 742 767 292</p>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="scroll-reveal">
+        <h2>Projects & Work</h2>
+        <div class="projects-grid">
+            <!-- Podcast -->
+            <div class="project-card fade-in fade-in-delay-1">
+                <div class="project-icon">🎙️</div>
+                <h3>Psychology With Us</h3>
+                <p>A podcast unpacking psychological concepts through the lens of everyday African student life. On Spotify, Amazon Music, and major platforms.</p>
+                <div class="project-links">
+                    <a href="https://open.spotify.com/show/3ZFnDhIlVdoPRt0eoazJDo" target="_blank" class="project-link">Spotify</a>
+                    <a href="https://music.amazon.com/podcasts/875612cd-3cfb-4921-8df7-007ef4c7c78e/psychology-with-kiarii" target="_blank" class="project-link">Amazon Music</a>
+                </div>
+            </div>
+
+            <!-- i-Personality -->
+            <div class="project-card fade-in fade-in-delay-2">
+                <div class="project-icon">🧠</div>
+                <h3>i-Personality</h3>
+                <p>A web-based personality assessment tool built on the MBTI framework. Tech + Psychology combined.</p>
+                <div class="project-links">
+                    <a href="https://datalternate.github.io/i-personality/" target="_blank" class="project-link">Try Now</a>
+                    <a href="https://github.com/Datalternate/i-personality" target="_blank" class="project-link">GitHub</a>
+                </div>
+            </div>
+
+            <!-- YouTube -->
+            <div class="project-card fade-in fade-in-delay-3">
+                <div class="project-icon">📺</div>
+                <h3>Psychology With Kiarii</h3>
+                <p>YouTube channel translating complex psychological frameworks into engaging visual content for students and curious minds.</p>
+                <div class="project-links">
+                    <a href="https://www.youtube.com/@psychologywithkiarii" target="_blank" class="project-link">Subscribe</a>
+                </div>
+            </div>
+
+            <!-- Poetry -->
+            <div class="project-card fade-in fade-in-delay-4">
+                <div class="project-icon">✍️</div>
+                <h3>Published Poetry</h3>
+                <p><em>The Echo of Silent Petals</em> — Featured contributor in She Osprey's DBH anthology. Writing under pen name Kieran Rivenhall.</p>
+                <div class="project-links">
+                    <a href="https://ospreymp.she-osprey.co.ke/product/the-echo-of-silent-petals-dbh-vol-5/" target="_blank" class="project-link">Read</a>
+                </div>
+            </div>
+
+            <!-- LinkedIn -->
+            <div class="project-card fade-in fade-in-delay-1">
+                <div class="project-icon">🔗</div>
+                <h3>Professional Network</h3>
+                <p>Connect with me on LinkedIn to stay updated on projects, speaking engagements, and mental health insights.</p>
+                <div class="project-links">
+                    <a href="https://www.linkedin.com/in/davis-kiarii-wanjiku-26062a394/" target="_blank" class="project-link">LinkedIn</a>
+                </div>
+            </div>
+
+            <!-- Mental Health Content -->
+            <div class="project-card fade-in fade-in-delay-2">
+                <div class="project-icon">📝</div>
+                <h3>Mental Health Writing</h3>
+                <p>Blog posts, articles, and content on psychology, African perspectives, emotional wellbeing, and behavior.</p>
+                <div class="project-links">
+                    <a href="mailto:psychologistkiariidavis@gmail.com" class="project-link">Inquire</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="scroll-reveal">
+        <h2>Services</h2>
+        <p style="margin-bottom: 2rem; font-size: 1rem;">I'm a Year 3 psychology student. I cannot offer clinical counselling yet (requires CPB license post-2027), but I can offer:</p>
+        
+        <div class="services-grid">
+            <div class="service-item">
+                <h3>🎤 Mental Health Talks</h3>
+                <p>Structured presentations for schools, universities, corporates, and community groups. Topics: stress, emotional intelligence, personality, identity, relationships, and African psychology perspectives.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>🛠️ Psychoeducation Workshops</h3>
+                <p>Interactive group sessions teaching psychological concepts in practical, relatable ways. Covering coping skills, self-awareness, communication, and behavior change.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>👥 Peer Support Facilitation</h3>
+                <p>Facilitation of peer support circles, student wellness groups, and mental health awareness campaigns. Group dynamics trained.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>🧩 Personality Assessment Consultancy</h3>
+                <p>Help applying or building personality frameworks for teams, schools, or digital products. Test design, results interpretation, and organizational application.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>📻 Podcast & Media Collaboration</h3>
+                <p>Guest appearances, co-hosting, podcast consulting, and episode scripting. Experience across Spotify, YouTube, and major platforms.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>✍️ Mental Health Content</h3>
+                <p>Articles, blog posts, newsletters, website copy, and social media scripts on psychology and mental health. Accurate, warm, stigma-free writing.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>📊 Campaign Strategy</h3>
+                <p>Consulting on mental health awareness campaigns that are psychologically sound, culturally relevant, and effective for organizations and brands.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>🎨 Graphic Design</h3>
+                <p>Visual content for mental health brands, event flyers, social media graphics, and presentations. Psychology-informed aesthetics.</p>
+            </div>
+
+            <div class="service-item">
+                <h3>💼 Virtual Assistance</h3>
+                <p>Research, scheduling, email management, content coordination, and administrative support. Remote and freelance available.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="scroll-reveal">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Academic & Professional</h3>
+                <ul class="skill-list">
+                    <li>Clinical & Counselling Psychology</li>
+                    <li>Psychological Assessment (MBTI)</li>
+                    <li>Counselling Theory & Practice</li>
+                    <li>Mental Health Advocacy</li>
+                    <li>Group Facilitation</li>
+                    <li>Research & Academic Writing</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Creative</h3>
+                <ul class="skill-list">
+                    <li>Podcasting & Production</li>
+                    <li>YouTube Content Creation</li>
+                    <li>Blog & Mental Health Writing</li>
+                    <li>Poetry (Published)</li>
+                    <li>Storytelling</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Technical</h3>
+                <ul class="skill-list">
+                    <li>Graphic Design</li>
+                    <li>Web Tool Development</li>
+                    <li>Vibe Coding (AI-Assisted)</li>
+                    <li>Virtual Assistance</li>
+                    <li>Content Coordination</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="scroll-reveal">
+        <div class="contact-cta">
+            <h2>Let's Work Together</h2>
+            <p>Whether it's a speaking engagement, content collaboration, tool consultation, or something else — I'd love to hear from you.</p>
+            <div class="contact-links">
+                <a href="mailto:psychologistkiariidavis@gmail.com" class="contact-link">📧 Email</a>
+                <a href="https://www.linkedin.com/in/davis-kiarii-wanjiku-26062a394/" target="_blank" class="contact-link">🔗 LinkedIn</a>
+                <a href="https://open.spotify.com/show/3ZFnDhIlVdoPRt0eoazJDo" target="_blank" class="contact-link">🎙️ Podcast</a>
+                <a href="tel:+254742767292" class="contact-link">📱 +254 742 767 292</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Davis Kiarii Wanjiku. Built with care. | <a href="https://github.com/Datalternate" target="_blank">GitHub</a></p>
+    </footer>
+
+    <!-- SCROLL REVEAL SCRIPT -->
+    <script>
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
